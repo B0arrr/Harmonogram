@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
-from backend.app.db.base_class import Base
+from app.db.base_class import Base
 
 
 class Employee(Base):
@@ -15,3 +15,4 @@ class Employee(Base):
     employment = relationship("Employment", back_populates="employee")
     position_id = Column(Integer, ForeignKey('position.id'))
     position = relationship("Position", back_populates="employee")
+    schedule = relationship("Schedule_Employee", back_populates="employee")
