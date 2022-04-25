@@ -9,6 +9,11 @@ from app.api import deps
 router = APIRouter()
 
 
+@router.get("/")
+def get():
+    return {"name": "Maciek"}
+
+
 @router.post("/create_position", response_model=schemas.Position)
 def create_item(
         *,
@@ -41,7 +46,7 @@ def get_position_id_by_name(
     return crud.position.get_id(db=db, name=name)
 
 
-@router.get("/get_position_name_by_id")
+@router.get("/get_position_name_by_id/{id}")
 def get_position_name_by_id(
         *,
         db: Session = Depends(deps.get_db),
