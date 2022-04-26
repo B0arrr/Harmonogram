@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('employment', sa.String(), nullable=False),
     sa.Column('hours_per_week', sa.Integer(), nullable=True),
-    sa.Column('pours_per_day', sa.Integer(), nullable=True),
+    sa.Column('hours_per_day', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_employment_employment'), 'employment', ['employment'], unique=False)
