@@ -15,16 +15,16 @@ def get():
 
 
 @router.post("/create_position", response_model=schemas.Position)
-def create_item(
+def create_position(
         *,
         db: Session = Depends(deps.get_db),
-        item_in: schemas.PositionCreate
+        position_in: schemas.PositionCreate
 ) -> Any:
     """
     Create new item.
     """
-    item = crud.position.create_one(db=db, obj_in=item_in)
-    return item
+    position = crud.position.create_one(db=db, obj_in=position_in)
+    return position
 
 
 @router.get("/get_position_by_id/{id}", response_model=schemas.Position)
@@ -33,8 +33,8 @@ def get_position_by_id(
         db: Session = Depends(deps.get_db),
         id: int
 ) -> Any:
-    items = crud.position.get_by_id(db=db, id=id)
-    return items
+    positions = crud.position.get_by_id(db=db, id=id)
+    return positions
 
 
 @router.get("/get_position_id/{name}")

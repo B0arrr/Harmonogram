@@ -8,7 +8,7 @@ from app.models.position import Position
 from app.schemas.position import PositionCreate, PositionUpdate
 
 
-class CRUDItem(CRUDBase[Position, PositionCreate, PositionUpdate]):
+class CRUDPosition(CRUDBase[Position, PositionCreate, PositionUpdate]):
     def create_one(
             self, db: Session, *, obj_in: PositionCreate
     ) -> Position:
@@ -42,4 +42,4 @@ class CRUDItem(CRUDBase[Position, PositionCreate, PositionUpdate]):
         return db.query(self.model).all()
 
 
-position = CRUDItem(Position)
+position = CRUDPosition(Position)
