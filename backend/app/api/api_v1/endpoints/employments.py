@@ -152,3 +152,6 @@ def delete_employment(
         raise HTTPException(status_code=404, detail="Employment not found")
     employment = crud.employment.remove(db=db, id=id)
     return employment
+
+
+
