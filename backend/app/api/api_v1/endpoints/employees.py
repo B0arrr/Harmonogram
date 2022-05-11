@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, List
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.encoders import jsonable_encoder
@@ -65,6 +65,17 @@ def get_employee_by_login(
     return crud.employee.get_by_login(db=db, login=login)
 
 
+@router.get("/get_all_employees", response_model=List[schemas.Employee])
+def get_all_employees(
+        *,
+        db: Session = Depends(deps.get_db)
+) -> Any:
+    """
+    Get all employees
+    """
+    return crud.employee.get_all_employees(db=db)
+
+
 @router.put("/create_account/{email}", response_model=schemas.Employee)
 def create_account_by_email(
         *,
@@ -98,6 +109,7 @@ def create_account_by_email(
     employee_updated.login = login
     employee_updated.password = get_password_hash(password=password)
     return crud.position.update(db=db, db_obj=employee, obj_in=employee_updated)
+
 
 @router.delete("/delete_employee/{id}", response_model=schemas.Employee)
 def delete_employee(

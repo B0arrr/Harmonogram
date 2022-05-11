@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 
@@ -22,6 +24,13 @@ class CRUDEmployee(CRUDBase[Employee, EmployeeCreate, EmployeeUpdate]):
             login: str
     ) -> Employee:
         return db.query(self.model).filter(Employee.login == login).first()
+
+    def get_all_employees(
+            self,
+            *,
+            db: Session
+    ) -> List[Employee]:
+        return db.query(self.model).filter(Employee.position_id != 1).all()
 
 
 employee = CRUDEmployee(Employee)
