@@ -26,6 +26,13 @@ def create_employee(
             status_code=400,
             detail="Email already in use"
         )
+    employee = crud.employee.get_by_login(db=db, login=employee_in.login)
+    if employee:
+        raise HTTPException(
+            status_code=400,
+            detail="Login already in use"
+        )
+    employee_in.password = get_password_hash(employee_in.password)
     return crud.employee.create(db=db, obj_in=employee_in)
 
 

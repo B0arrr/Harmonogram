@@ -17,6 +17,8 @@ class EmployeeCreate(BaseModel):
     email: EmailStr
     employment_id: int
     position_id: int
+    login: str
+    password: str
 
 
 class EmployeeUpdate(BaseModel):
