@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 
 from app.db.base_class import Base
@@ -11,6 +11,8 @@ class Employee(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     login = Column(String, unique=True, index=True, nullable=True)
     password = Column(String, nullable=True)
+    is_active = Column(Boolean(), default=True)
+    is_superuser = Column(Boolean(), default=False)
     employment_id = Column(Integer, ForeignKey('employment.id'))
     employment = relationship("Employment", back_populates="employee")
     position_id = Column(Integer, ForeignKey('position.id'))

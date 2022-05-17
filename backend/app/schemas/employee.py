@@ -9,6 +9,8 @@ class EmployeeBase(BaseModel):
     email: EmailStr
     employment_id: int
     position_id: int
+    is_active: Optional[bool] = True
+    is_superuser: bool = False
 
 
 class EmployeeCreate(BaseModel):

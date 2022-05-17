@@ -12,3 +12,7 @@ setuptools~=60.2.0
 passlib~=1.7.4
 email_validator~=1.2.0
 bcrypt~=3.2.2
+python-jose~=3.3.0
+jose~=1.0.0
+starlette~=0.17.1
+emails~=0.6
