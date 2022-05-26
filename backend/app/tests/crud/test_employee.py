@@ -78,7 +78,7 @@ def test_get_all_employees(db: Session):
     employees = crud.employee.get_all_employees(db=db)
     db_employees = db.query(models.Employee).all()
     assert employees
-    assert len(employees) + 1 == len(db_employees)
+    assert len(employees) == len(db_employees)
 
 
 def test_delete_employee(db: Session):
