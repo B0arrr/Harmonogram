@@ -21,7 +21,7 @@ def create_schedule(
     """
     Create schedule
     """
-    schedule = crud.schedule.create(db=db, obj_in=schedule_in)
+    schedule = crud.schedule.create_schedule(db=db, day=schedule_in.day, day_off= schedule_in.day_off)
     return schedule
 
 
@@ -105,7 +105,7 @@ def update_employment_name(
     """
     Update schedule day off
     """
-    schedule = crud.employment.get(db=db, id=id)
+    schedule = crud.schedule.get(db=db, id=id)
     if not schedule:
         raise HTTPException(
             status_code=404,

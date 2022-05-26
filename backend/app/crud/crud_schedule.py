@@ -9,6 +9,13 @@ from app.schemas.schedule import ScheduleUpdate, ScheduleCreate
 
 
 class CRUDSchedule(CRUDBase[Schedule, ScheduleCreate, ScheduleUpdate]):
+    def create_schedule(self, db: Session, *, day: datetime.date, day_off: bool) -> Schedule:
+        schedule = Schedule(day=day, day_off=day_off)
+        db.add(schedule)
+        db.commit()
+        db.refresh(schedule)
+        return schedule
+
     def get_id(
             self, db: Session, *, day: datetime.date
     ) -> int:
