@@ -16,3 +16,4 @@ python-jose~=3.3.0
 jose~=1.0.0
 starlette~=0.17.1
 emails~=0.6
+pytest~=7.1.2
