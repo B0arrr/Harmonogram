@@ -23,7 +23,7 @@ def create_schedule_employee(
     return crud.schedule_employee.create(db=db, obj_in=schedule_employee_in)
 
 
-@router.get("/get_schedule/{days}", response_model=List[schemas.ScheduleEmployee])
+@router.get("/get_schedule", response_model=List[schemas.ScheduleEmployee])
 def get_schedule(
         *,
         db: Session = Depends(deps.get_db),
