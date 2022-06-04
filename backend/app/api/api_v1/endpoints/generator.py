@@ -21,6 +21,9 @@ def generate_schedule(
         employee_per_shift: int,
         shifts: int
 ) -> Any:
+    """
+    Generate schedule from start to end day, for different employees on shift, and different amount of shifts
+    """
     days = helper.get_list_of_days(start, end)
     employees = crud.employee.get_all_employees(db=db)
     if len(employees) < employee_per_shift * shifts:
@@ -55,6 +58,9 @@ def get_generated_schedule(
         start: date,
         end: date
 ) -> Any:
+    """
+    Get schedule
+    """
     schedule = schemas.GeneratedSchedule()
     days = helper.get_list_of_days(start=start, end=end)
     for i in crud.schedule_employee.get_schedule(db=db, days=days):
@@ -77,6 +83,9 @@ def get_generated_schedule_for_employee(
         end: date,
         employee_id: int
 ) -> Any:
+    """
+    Get schedule for concrete employee
+    """
     schedule = schemas.GeneratedScheduleForEmployee()
     days = helper.get_list_of_days(start=start, end=end)
     for i in crud.schedule_employee.get_schedule(db=db, days=days):
