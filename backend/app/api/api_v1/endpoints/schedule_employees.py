@@ -1,3 +1,4 @@
+import datetime
 from typing import Any, List
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -26,7 +27,7 @@ def create_schedule_employee(
 def get_schedule(
         *,
         db: Session = Depends(deps.get_db),
-        days: List[schemas.Schedule]
+        days: List[datetime.date]
 ) -> Any:
     """
     Get schedule

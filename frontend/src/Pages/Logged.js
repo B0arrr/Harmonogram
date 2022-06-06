@@ -1,8 +1,8 @@
 import React from "react";
 import {HeaderLogged} from "../Components/Header";
-import AddWorker from "../Components/AddWorker";
-import ListWorker from "../Components/ListWorker";
-import TimeTable from "../Components/WorkTable";
+import AddEmployee from "../Components/AddEmployee";
+import ListEmployee from "../Components/ListEmployee";
+import EmployeeTable from "../Components/EmployeeTable";
 import '../Components/Logged.css'
 
 
@@ -14,10 +14,10 @@ function Logged() {
             <div>
                 <HeaderLogged/>
             </div>
-            <div className="harmonogram" >
-                <AddWorker/>
-                <ListWorker/>
-                <TimeTable/>
+            <div className="schedule" >
+                <AddEmployee/>
+                <ListEmployee/>
+                <EmployeeTable/>
             </div>
         </div>
     )

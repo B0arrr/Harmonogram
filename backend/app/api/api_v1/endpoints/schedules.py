@@ -21,7 +21,7 @@ def create_schedule(
     """
     Create schedule
     """
-    schedule = crud.schedule.create_schedule(db=db, day=schedule_in.day, day_off= schedule_in.day_off)
+    schedule = crud.schedule.create_schedule(db=db, day=schedule_in.day, day_off=schedule_in.day_off)
     return schedule
 
 

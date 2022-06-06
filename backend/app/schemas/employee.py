@@ -28,6 +28,11 @@ class EmployeeUpdate(BaseModel):
     password: Optional[str] = None
 
 
+class EmployeeDisplay(BaseModel):
+    name: str
+    surname: str
+
+
 class EmployeeInDBBase(EmployeeBase):
     id: int
 

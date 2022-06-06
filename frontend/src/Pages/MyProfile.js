@@ -12,21 +12,18 @@ function MyProfile() {
                 <div className='myProfile'>
                 <div className='myProfileContainer'>
                     <div className='myProfileBorder'>
-                    <div className='aadawdawd'>
-                    <div className='testasad'>
-                        <h1>Jan Kowalski</h1>
-                        <div className='infoAboutWorker'>
-                           <p>Position: Kierownik</p>
-                           <p>ID: 111</p>
+                    <div className='splitDataIntoColumns'>
+                        <div className='infoAboutEmployee'>
+                            <p className='employeeInfoHeader'> Jan Kowalski: </p>
+                            <p>ID: 1</p>
+                            <p>Position: Kierownik</p>
                         </div>
-                    </div>
                     <div className='infoAboutAccount'>
                         <p className='accountInfoHeader'> Info about account: </p>
                            <p>Name: Maciek</p>
                            <p>Surname: Kowalczyk</p>
-                           <p>E-mail: kowalczyk_maciej@ppp.pl</p>
+                           <p>E-mail: kowalczyk_maciej@p.pl</p>
                            <p>Login: Maciek31</p>
-                           <p></p>
                     </div>
                    </div>
                     </div>
