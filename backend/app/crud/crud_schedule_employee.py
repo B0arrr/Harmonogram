@@ -16,8 +16,8 @@ class CRUDScheduleEmployee(CRUDBase[Schedule_Employee, ScheduleEmployeeCreate, S
     ) -> List[Schedule_Employee]:
         schedule = []
         for i in days:
-            id = crud.schedule.get_id(db=db, day=i)
-            schedule.append(db.query(self.model).filter(Schedule_Employee.schedule_id == id).first())
+            schedule_id = crud.schedule.get_id(db=db, day=i)
+            schedule += db.query(self.model).filter(Schedule_Employee.schedule_id == schedule_id).all()
         return schedule
 
     def get_by_ids(
@@ -32,7 +32,7 @@ class CRUDScheduleEmployee(CRUDBase[Schedule_Employee, ScheduleEmployeeCreate, S
         day_id = crud.schedule.get_id(db=db, day=day)
         employees = []
         for i in db.query(self.model).filter(Schedule_Employee.schedule_id == day_id).all():
-            employees.append(crud.employee.get(db=db, id=i.employee_id)).first()
+            employees.append(crud.employee.get(db=db, id=i.employee_id))
         return employees
 
     def delete(

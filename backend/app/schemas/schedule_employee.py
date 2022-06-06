@@ -16,7 +16,6 @@ class ScheduleEmployeeUpdate(ScheduleEmployeeBase):
 
 
 class ScheduleEmployeeInDBBase(ScheduleEmployeeBase):
-    id: int
     schedule_id: int
     employee_id: int
     shift: int
