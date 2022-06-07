@@ -2,8 +2,9 @@ import React from "react";
 import {HeaderLogged} from "../Components/Header";
 import AddEmployee from "../Components/AddEmployee";
 import ListEmployee from "../Components/ListEmployee";
-import EmployeeTable from "../Components/EmployeeTable";
+import EmployeeScheduleGenerator from "../Components/EmployeeScheduleGenerator";
 import '../Components/Logged.css'
+import EmployeeSchedule from "../Components/EmployeeSchedule";
 
 
 function Logged() {
@@ -15,9 +16,12 @@ function Logged() {
                 <HeaderLogged/>
             </div>
             <div className="schedule" >
-                <AddEmployee/>
+                <div>
+                    <AddEmployee/>
+                    <EmployeeScheduleGenerator/>
+                </div>
                 <ListEmployee/>
-                <EmployeeTable/>
+                <EmployeeSchedule/>
             </div>
         </div>
     )
