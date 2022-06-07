@@ -16,12 +16,12 @@ function Logged() {
                 <HeaderLogged/>
             </div>
             <div className="schedule" >
-                <div>
-                    <AddEmployee/>
-                    <EmployeeScheduleGenerator/>
-                </div>
+
+                <AddEmployee/>
+                <EmployeeScheduleGenerator/>
                 <ListEmployee/>
                 <EmployeeSchedule/>
+
             </div>
         </div>
     )

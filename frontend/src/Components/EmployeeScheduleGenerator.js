@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, {useId} from "react";
+import './EmployeeScheduleGenerator.css'
 import {useEffect, useState} from "react";
 import Axios from "axios";
 import button from "bootstrap/js/src/button";
@@ -16,6 +16,7 @@ function EmployeeScheduleGenerator(){
     const [shifts, setShifts] = useState('')
 
     const [errorMessage, setErrorMessage] = useState("");
+
 
 
 
@@ -44,23 +45,28 @@ function EmployeeScheduleGenerator(){
     })
 
     return(
-        <div className='workTableContainer'>
-            <div className='containerForBorder'>
-                <h1 id='workTableHeader'>Schedule Generator</h1>
-                <div className='containerFromWorkTable'>
-                    <div className='buttonContainer'>
-                        <form className='form'>
-                            <input placeholder='Start Date (yyyy-mm-dd)' className='form-control' type='text' value={start} onChange={(e) =>setStart(e.target.value)}/>
-                            <input placeholder='End Date (yyyy-mm-dd)' className='form-control' type="text" value={end} onChange={(e) =>setEnd(e.target.value)}/>
-                            <input placeholder='employee_per_shift' className='form-control' type="text" value={employee_per_shift} onChange={(e) =>setEmployee_per_shift(e.target.value)}/>
-                            <input placeholder='shifts' className='form-control' type="text" value={shifts} onChange={(e) =>setShifts(e.target.value)}/>
-                        </form>
-                        <button className='btn btn-primary col-sm-6' onClick={postData} > Generate </button>
-                    </div>
+            <div className='workTableContainer'>
+                <div className='containerForBorder'>
+                    <h1 id='workTableHeader'>Schedule Generator:</h1>
+                    <div className='containerFromWorkTable'>
+                        <div className='buttonContainer'>
+                            <form className='form'>
+                                <input placeholder='Start Date (yyyy-mm-dd)' className='form-control' type='text' value={start} onChange={(e) =>setStart(e.target.value)}/>
+                                <input placeholder='End Date (yyyy-mm-dd)' className='form-control' type="text" value={end} onChange={(e) =>setEnd(e.target.value)}/>
+                                <input placeholder='employee_per_shift' className='form-control' type="text" value={employee_per_shift} onChange={(e) =>setEmployee_per_shift(e.target.value)}/>
+                                <input placeholder='shifts' className='form-control' type="text" value={shifts} onChange={(e) =>setShifts(e.target.value)}/>
+                            </form>
+                            <button className='btn btn-primary col-sm-6' onClick={postData} > Generate </button>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        </div>
+</div>
+
+
+
+
+
     )
 }
 
