@@ -5,6 +5,7 @@ import {HeaderLogged, HeaderLogIn} from './Components/Header';
 import Axios from "axios";
 
 
+
 function App() {
     const [data, setData] = useState([])
 
@@ -15,7 +16,6 @@ function App() {
     const [email, setEmail] = useState('')
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-
 
 
 
@@ -51,7 +51,7 @@ function App() {
                     <input placeholder='Employment' className='form-control' type="number" value={employment_id} onChange={(e) =>setEmployment_id(e.target.value)}/>
                     <input placeholder='Position' className='form-control' type="number" value={position_id} onChange={(e) =>setPosition_id(e.target.value)}/>
                     </form>
-                <button className='btn btn-primary col-sm-6' > Sing In </button>
+                <button  className='btn btn-primary col-sm-6' > Sing In </button>
             </div>
         </div>
 

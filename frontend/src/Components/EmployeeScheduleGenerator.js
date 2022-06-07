@@ -47,7 +47,7 @@ function EmployeeScheduleGenerator(){
     return(
             <div className='workTableContainer'>
                 <div className='containerForBorder'>
-                    <h1 id='workTableHeader'>Schedule Generator:</h1>
+                    <h1 id='workTableHeader'>Schedule Generator: </h1>
                     <div className='containerFromWorkTable'>
                         <div className='buttonContainer'>
                             <form className='form'>

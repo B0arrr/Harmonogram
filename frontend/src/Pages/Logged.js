@@ -18,8 +18,8 @@ function Logged() {
             <div className="schedule" >
 
                 <AddEmployee/>
-                <EmployeeScheduleGenerator/>
                 <ListEmployee/>
+                <EmployeeScheduleGenerator/>
                 <EmployeeSchedule/>
 
             </div>
