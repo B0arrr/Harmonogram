@@ -61,19 +61,6 @@ def test_get_employee_by_email(db: Session):
     assert employee_new.password == employee.password
 
 
-def test_get_employee_by_login(db: Session):
-    employee_new = create_random_employee(db=db)
-    employee = crud.employee.get_by_login(db=db, login=employee_new.login)
-    assert employee
-    assert employee_new.name == employee.name
-    assert employee_new.surname == employee.surname
-    assert employee_new.email == employee.email
-    assert employee_new.position_id == employee.position_id
-    assert employee_new.employment_id == employee.employment_id
-    assert employee_new.login == employee.login
-    assert employee_new.password == employee.password
-
-
 def test_get_all_employees(db: Session):
     employees = crud.employee.get_all_employees(db=db)
     db_employees = db.query(models.Employee).all()
@@ -89,3 +76,17 @@ def test_delete_employee(db: Session):
     assert employee_deleted
     assert employee == employee_deleted
     assert not employee_after_delete
+
+
+
+def test_get_employee_by_login(db: Session):
+    employee_new = create_random_employee(db=db)
+    employee = crud.employee.get_by_login(db=db, login=employee_new.login)
+    assert employee
+    assert employee_new.name == employee.name
+    assert employee_new.surname == employee.surname
+    assert employee_new.email == employee.email
+    assert employee_new.position_id == employee.position_id
+    assert employee_new.employment_id == employee.employment_id
+    assert employee_new.login == employee.login
+    assert employee_new.password == employee.password
