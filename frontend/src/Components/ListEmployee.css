@@ -1,30 +1,35 @@
-.listEmployeesContainer{
+.listEmployeesContainer {
     margin-left: 2%;
     margin-right: 5%;
 }
-.btnDeleteEmployee{
+
+.btnDeleteEmployee {
     background-color: #0d6efd;
     color: white;
     text-align: center;
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
 .btnDeleteEmployee:hover {
     color: #fff;
     background-color: #0b5ed7;
     border-color: #0a58ca;
 }
+
 .btnDeleteEmployee-primary {
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;
 }
-ul{
+
+.listEmployeesUl {
     list-style-type: none
 }
-li{
+
+.listEmployeesli {
     border: 1px solid black;
     padding: 2%;
     font-size: 13px;

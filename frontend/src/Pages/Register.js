@@ -21,7 +21,7 @@ function Register(){
 
 
     useEffect(() =>{
-        Axios.get(`http://localhost:8000/api/get_employee_by_login/${login}`)
+        Axios.get(`http://localhost:8000/api/get_all_employees`)
             .then(res => {
                 console.log("Getting from :::",res.data)
                 setData(res.data)
@@ -55,6 +55,7 @@ function Register(){
                 <td style={{border: '1px solid black'}}>{data.position_id}</td>
             </tr>
         )
+
     })
 
 
@@ -64,6 +65,7 @@ function Register(){
             <HeaderRegister/>
             <div className='containerForRegister'>
                 <br/>
+
                 <h1 className='registerHeader'>Zarejestruj się: </h1>
                 <h2>{errorMessage}</h2>
                 <form className='form col-sm-6'>

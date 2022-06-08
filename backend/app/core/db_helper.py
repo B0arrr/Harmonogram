@@ -7,10 +7,9 @@ class Helper:
 
     def get_list_of_days(self, start: datetime.date, end: datetime.date):
         days = []
-        temp = start
-        while start <= end:
-            days.append(temp)
-            temp += datetime.timedelta(days=1)
+        delta = end - start
+        for i in range(delta.days + 1):
+            days.append(start + datetime.timedelta(days=i))
         return days
 
 

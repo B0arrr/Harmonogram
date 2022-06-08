@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from app import schemas, crud
 from app.api import deps
+from app.core import helper
 
 router = APIRouter()
 
@@ -23,21 +24,23 @@ def create_schedule_employee(
     return crud.schedule_employee.create(db=db, obj_in=schedule_employee_in)
 
 
-@router.get("/get_schedule", response_model=List[schemas.ScheduleEmployee])
+@router.get("/get_schedule/start/{start}/end/{end}", response_model=List[schemas.ScheduleEmployee])
 def get_schedule(
         *,
         db: Session = Depends(deps.get_db),
-        days: List[datetime.date]
+        start: datetime.date,
+        end: datetime.date
 ) -> Any:
     """
     Get schedule
     """
+    days = helper.get_list_of_days(start, end)
     return crud.schedule_employee.get_schedule(db=db, days=days)
 
 
 @router.put("/update_schedule_employee_by_ids/schedule_id/{schedule_id/employee_id/{employee_id}/shift",
             response_model=schemas.ScheduleEmployee)
-def update_position(
+def update_schedule_employee(
         *,
         db: Session = Depends(deps.get_db),
         schedule_id: int,
@@ -59,8 +62,8 @@ def update_position(
     return crud.position.update(db=db, db_obj=schedule_employee, obj_in=schedule_employee_updated)
 
 
-@router.delete("/delete_schedule_employee/{schedule_id}/{employee_id}", response_model=schemas.Position)
-def delete_position(
+@router.delete("/delete_schedule_employee/{schedule_id}/{employee_id}", response_model=schemas.ScheduleEmployee)
+def delete_schedule_employee(
     *,
     db: Session = Depends(deps.get_db),
     schedule_id: int,
