@@ -10,8 +10,9 @@
 .btnDeleteEmployee {
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     width: 100%;
- font-size: 14px;
+    font-size: 14px;
     background-color: #0d6efd;
     color: white;
     text-align: center;
@@ -49,6 +50,7 @@
     width: 30%;
     line-break: anywhere;
 
+
 }
 
 .listEmployeesLi {
@@ -57,4 +59,5 @@
     padding: 5%;
     font-size: 13px;
 }
+
 

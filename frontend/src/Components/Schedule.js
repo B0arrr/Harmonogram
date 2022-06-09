@@ -24,9 +24,9 @@ function Schedule() {
                 {data2.schedules?.map((item2, i2) => (
                     <table className="table table-bordered  tableSchedule">
                         <thead>
-                        <div className='dayInSchedule'> <strong>Date: {item2.day}</strong></div>
+                        {/*<div className='dayInSchedule'> <strong>Date: {item2.day}</strong></div>*/}
                         <tr className="bg-light-gray" key={i2}>
-
+                            <div className='dayInSchedule'> <strong>Date: {item2.day}</strong></div>
                             <th>Name</th>
                             <th>Surname</th>
                         </tr>

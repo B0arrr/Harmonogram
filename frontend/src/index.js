@@ -8,6 +8,7 @@ import LoggedPage from "./Pages/LoggedPage";
 import RegistrationPage from "./Pages/RegistrationPage";
 import ManageEmployees from "./Pages/ManageEmployees";
 import ManageSchedule from "./Pages/ManageSchedule";
+import {UserProvider} from "./Components/TestLogin/UserContext";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +16,7 @@ root.render(
     <React.StrictMode>
         <Router>
             <Routes>
-                <Route path="/" element={<App/>}/>
+                <Route path="/" element={<UserProvider><App/></UserProvider>}/>
                 <Route path="/src/Pages/RegistrationPage" element={<RegistrationPage/>}/>
                 <Route path="/src/Pages/LoggedPage" element={<LoggedPage/>}/>
                 <Route path="/src/Pages/ManageEmployees" element={<ManageEmployees/>}/>

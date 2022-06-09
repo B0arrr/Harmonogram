@@ -6,12 +6,9 @@ import "./Style/AddEmployee.css";
 function AddEmployee() {
     const [data, setData] = useState([]);
 
-
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
-    const [employment_id, setEmployment_id] = useState('');
-    const [position_id, setPosition_id] = useState('');
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
@@ -51,20 +48,29 @@ function AddEmployee() {
             .catch(err => setErrorMessage(err.response.data.detail));
     };
 
-    const arr = data.map((data, index) => {
-        return (
-            <tr>
-                <td>{data.name}</td>
-                <td>{data.surname}</td>
-                <td>{data.email}</td>
-                <td>{data.employment_id}</td>
-                <td>{data.position_id}</td>
-                <td>{data.login}</td>
-                <td>{data.password}</td>
-            </tr>
-        );
-    });
+    const optionsEmployment = [
+        {value: '', text: 'Choose employment'},
+        {value: '1', text: 'Cały etat'},
+        {value: '2', text: 'Pół etatu'},
+    ];
 
+    const [employment_id, setEmployment_id] = useState(optionsEmployment[0].value);
+    const chooseEmployment = event => {
+        console.log(event.target.value);
+        setEmployment_id(event.target.value);
+    };
+
+    const optionsPosition = [
+        {value: '', text: 'Choose position'},
+        {value: '1', text: 'Kierownik'},
+        {value: '2', text: 'Pracownik'},
+    ];
+
+    const [position_id, setPosition_id] = useState(optionsPosition[0].value);
+    const choosePosition = event => {
+        console.log(event.target.value);
+        setPosition_id(event.target.value);
+    };
 
     return (
         <div>
@@ -82,10 +88,22 @@ function AddEmployee() {
                            onChange={(e) => setLogin(e.target.value)}/>
                     <input placeholder="Password" className="form-control" type="password" value={password}
                            onChange={(e) => setPassword(e.target.value)}/>
-                    <input placeholder="Employment" className="form-control" type="number" value={employment_id}
-                           onChange={(e) => setEmployment_id(e.target.value)}/>
-                    <input placeholder="Position" className="form-control" type="number" value={position_id}
-                           onChange={(e) => setPosition_id(e.target.value)}/>
+                    <select className="form-select selectEmployment" aria-label="Default select example"
+                            value={employment_id} onChange={chooseEmployment}>
+                        {optionsEmployment.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.text}
+                            </option>
+                        ))}
+                    </select>
+                    <select className="form-select selectPosition" aria-label="Default select example"
+                            value={position_id} onChange={choosePosition}>
+                        {optionsPosition.map(option2 => (
+                            <option key={option2.value} value={option2.value}>
+                                {option2.text}
+                            </option>
+                        ))}
+                    </select>
                 </form>
                 <button className="btn btn-primary btnAddEmployee" onClick={postData}> Register</button>
             </div>
