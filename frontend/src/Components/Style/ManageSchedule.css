@@ -1,0 +1,20 @@
+
+
+.containerForManageSchedule{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+.employeeScheduleGenerator{
+    width: 50vw;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.employeeSchedulePicker{
+    width: 50vw;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.employeeSchedule{
+
+}
