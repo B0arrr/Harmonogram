@@ -1,77 +1,68 @@
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
-import "./Style/AddEmployee.css";
+import "./Style/RegistrationPage.css";
+import button from "bootstrap/js/src/button";
 
 
-function AddEmployee() {
+function Registration() {
     const [data, setData] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
 
-
+    const [employment_id, setEmployment_id] = useState('');
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
-    const [email, setEmail] = useState('');
-    const [employment_id, setEmployment_id] = useState('');
     const [position_id, setPosition_id] = useState('');
+    const [email, setEmail] = useState('');
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
 
-    const [errorMessage, setErrorMessage] = useState("");
-
-    const resetInputField = () => {
-        setName("");
-        setSurname("");
-        setEmail("");
-        setEmployment_id("");
-        setPosition_id("");
-        setLogin("");
-        setPassword("");
-    };
-
     useEffect(() => {
-        Axios.get(`http://localhost:8000/api/get_employee_by_login/${employment_id}`)
+        Axios.get(`http://localhost:8000/api/get_all_employees`)
             .then(res => {
                 console.log("Getting from :::", res.data);
                 setData(res.data);
             }).catch(err => console.log(err));
     }, []);
-
-    const postData = () => {
-
+    const postData = (e) => {
+        e.preventDefault();
         Axios.post(`http://localhost:8000/api/create_employee`, {
+            email,
+            login,
+            password,
+            employment_id,
             name,
             surname,
-            email,
-            employment_id,
-            position_id,
-            login,
-            password
-        }).then(res => alert(`Employee account created`))
-            .then(res => resetInputField())
+            position_id
+        }).then(res => alert(`Account created ${window.location.href = '/'}`))
             .catch(err => setErrorMessage(err.response.data.detail));
     };
+
 
     const arr = data.map((data, index) => {
         return (
             <tr>
-                <td>{data.name}</td>
-                <td>{data.surname}</td>
-                <td>{data.email}</td>
-                <td>{data.employment_id}</td>
-                <td>{data.position_id}</td>
-                <td>{data.login}</td>
-                <td>{data.password}</td>
+                <td style={{border: '1px solid black'}}>{data.email}</td>
+                <td style={{border: '1px solid black'}}>{data.login}</td>
+                <td style={{border: '1px solid black'}}>{data.password}</td>
+                <td style={{border: '1px solid black'}}>{data.name}</td>
+                <td style={{border: '1px solid black'}}>{data.surname}</td>
+                <td style={{border: '1px solid black'}}>{data.employment_id}</td>
+                <td style={{border: '1px solid black'}}>{data.position_id}</td>
             </tr>
         );
+
     });
 
 
     return (
         <div>
-            <div className="containerForAddEmployee">
-                <h1 className="addEmployeeHeader">Add Employee: </h1>
+            <div className="containerForRegister">
+                <br/>
+
+                <h1 className="registerHeader">Zarejestruj się: </h1>
                 <h2>{errorMessage}</h2>
-                <form className="form">
+                <form className="form col-sm-6">
                     <input placeholder="Name" className="form-control" type="text" value={name}
                            onChange={(e) => setName(e.target.value)}/>
                     <input placeholder="Surname" className="form-control" type="text" value={surname}
@@ -87,10 +78,10 @@ function AddEmployee() {
                     <input placeholder="Position" className="form-control" type="number" value={position_id}
                            onChange={(e) => setPosition_id(e.target.value)}/>
                 </form>
-                <button className="btn btn-primary btnAddEmployee" onClick={postData}> Register</button>
+                <button className="btn btn-primary col-sm-6" onClick={postData}> Register</button>
             </div>
         </div>
     );
 }
 
-export default AddEmployee;
+export default Registration;

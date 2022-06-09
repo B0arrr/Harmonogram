@@ -1,0 +1,11 @@
+.btnAddEmployee {
+width: 100%;
+}
+.addEmployeeHeader{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+
+

@@ -1,0 +1,56 @@
+
+.listEmployeesContainer {
+
+}
+
+.listEmployeesHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.btnDeleteEmployee {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btnDeleteEmployee:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.btnDeleteEmployee-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.listEmployeesH4 {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.listEmployeesUl {
+    margin-top: 1%;
+    margin-left: 2%;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #dbdbdb;
+    width: 30%;
+    line-break: anywhere;
+
+}
+
+.listEmployeesLi {
+    display: flex;
+    align-items: center;
+    padding: 5%;
+    font-size: 13px;
+}
