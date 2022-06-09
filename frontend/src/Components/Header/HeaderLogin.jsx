@@ -1,19 +1,19 @@
 import React from "react";
-import './Header.css'
+import '../Style/Header.css';
 
 
-
-function HeaderRegister() {
+function HeaderLogin() {
     return (
         <div className="header">
             <a href="/" className="logo">Harmonogram</a>
             <div className="header-right">
                 <a href="/">Home</a>
-                <a  href="/">Log In</a>
+                <a href="/src/Pages/RegistrationPage">Register</a>
             </div>
         </div>
-    )
+    );
 }
-export default HeaderRegister
+
+export default HeaderLogin;
 
 

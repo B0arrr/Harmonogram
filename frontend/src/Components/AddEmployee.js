@@ -1,8 +1,6 @@
-import React from "react";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Axios from "axios";
-import "./AddEmployee.css";
-import {HeaderRegister} from "./Header";
+import "./Style/AddEmployee.css";
 
 
 function AddEmployee() {
@@ -56,34 +54,40 @@ function AddEmployee() {
     const arr = data.map((data, index) => {
         return (
             <tr>
-                <td >{data.name}</td>
-                <td >{data.surname}</td>
-                <td >{data.email}</td>
-                <td >{data.employment_id}</td>
-                <td >{data.position_id}</td>
-                <td >{data.login}</td>
-                <td >{data.password}</td>
+                <td>{data.name}</td>
+                <td>{data.surname}</td>
+                <td>{data.email}</td>
+                <td>{data.employment_id}</td>
+                <td>{data.position_id}</td>
+                <td>{data.login}</td>
+                <td>{data.password}</td>
             </tr>
         );
     });
 
 
-
     return (
         <div>
-            <div className='containerForAddEmployee'>
-                <h1 className='addEmployeeHeader'>Add Employee: </h1>
+            <div className="containerForAddEmployee">
+                <h1 className="addEmployeeHeader">Add Employee: </h1>
                 <h2>{errorMessage}</h2>
-                <form className='form'>
-                    <input placeholder='Name' className='form-control' type="text" value={name} onChange={(e) =>setName(e.target.value)}/>
-                    <input placeholder='Surname' className='form-control' type="text" value={surname} onChange={(e) =>setSurname(e.target.value)}/>
-                    <input placeholder='E-mail' className='form-control' type="text" value={email} onChange={(e) =>setEmail(e.target.value)}/>
-                    <input placeholder='Login' className='form-control' type="text" value={login} onChange={(e) =>setLogin(e.target.value)}/>
-                    <input placeholder='Password' className='form-control' type="password" value={password} onChange={(e) =>setPassword(e.target.value)}/>
-                    <input placeholder='Employment' className='form-control' type="number" value={employment_id} onChange={(e) =>setEmployment_id(e.target.value)}/>
-                    <input placeholder='Position' className='form-control' type="number" value={position_id} onChange={(e) =>setPosition_id(e.target.value)}/>
+                <form className="form">
+                    <input placeholder="Name" className="form-control" type="text" value={name}
+                           onChange={(e) => setName(e.target.value)}/>
+                    <input placeholder="Surname" className="form-control" type="text" value={surname}
+                           onChange={(e) => setSurname(e.target.value)}/>
+                    <input placeholder="E-mail" className="form-control" type="text" value={email}
+                           onChange={(e) => setEmail(e.target.value)}/>
+                    <input placeholder="Login" className="form-control" type="text" value={login}
+                           onChange={(e) => setLogin(e.target.value)}/>
+                    <input placeholder="Password" className="form-control" type="password" value={password}
+                           onChange={(e) => setPassword(e.target.value)}/>
+                    <input placeholder="Employment" className="form-control" type="number" value={employment_id}
+                           onChange={(e) => setEmployment_id(e.target.value)}/>
+                    <input placeholder="Position" className="form-control" type="number" value={position_id}
+                           onChange={(e) => setPosition_id(e.target.value)}/>
                 </form>
-                <button  className='btn btn-primary btnAddEmployee' onClick={postData}> Register </button>
+                <button className="btn btn-primary btnAddEmployee" onClick={postData}> Register</button>
             </div>
         </div>
     );

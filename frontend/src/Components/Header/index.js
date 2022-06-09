@@ -1,13 +1,11 @@
 import HeaderNotLogged from "./HeaderNotLogged";
-import HeaderLogIn from "./HeaderLogIn";
-import HeaderRegister from "./HeaderRegister";
+import HeaderLogin from "./HeaderLogin";
+import HeaderRegistration from "./HeaderRegistration";
 import HeaderLogged from "./HeaderLogged";
-import HeaderMyProfile from "./HeaderMyProfile";
 
 export {
     HeaderNotLogged,
-    HeaderLogIn,
-    HeaderRegister,
+    HeaderLogin,
+    HeaderRegistration,
     HeaderLogged,
-    HeaderMyProfile,
-}
+};
