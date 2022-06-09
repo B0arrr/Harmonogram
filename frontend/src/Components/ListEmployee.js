@@ -6,6 +6,7 @@ function ListEmployee() {
 
     const [data, setData] = useState([]);
     const [status, setStatus] = useState('')
+    const [idForDelete, setIdForDelete] = useState('');
     const [employment, setEmployment] = useState([]);
 
 
@@ -26,6 +27,7 @@ function ListEmployee() {
     function deleteEmployee(e) {
 
         console.log(e.target.value);
+
         fetch(`http:/localhost:8000/api/delete_employee/${e.target.value}`, {method: `DELETE`})
             .then(() => setStatus('Deleted'));
     }
@@ -34,10 +36,17 @@ function ListEmployee() {
     return (
         <div className="listEmployeesContainer">
             <h1 className="listEmployeesHeader"> Employees List:</h1>
+
             <div className='buttonContainer'>
                 {/*<input type="number" value={idForDelete} onChange={(e) =>setIdForDelete(e.target.value)}/>*/}
                 {/*<button onClick={()=>deleteEmployee(data.id)} className='btnAdd'> Remove employee</button>*/}
             </div>
+
+            {/*<div className='buttonContainer'>*/}
+            {/*    /!*<input type="number" value={idForDelete} onChange={(e) =>setIdForDelete(e.target.value)}/>*!/*/}
+            {/*    /!*<button onClick={()=>deleteEmployee(data.id)} className='btnAdd'> Remove employee</button>*!/*/}
+            {/*</div>*/}
+
             <div className="containerForEmployees">
                 <h4 className="listEmployeesH4"> {data.map((item, i) => (
                     <ul className="listEmployeesUl" key={i}>

@@ -1,7 +1,8 @@
+
 .employeeScheduleGeneratorHeader{
     display: flex;
     justify-content: center;
 }
-.btnEmployeeScheduleGenerator{
+.btnEmployeeScheduleGenerator {
     width: 100%;
 }

@@ -1,3 +1,4 @@
+
 .containerForLoggedNavBtn {
     width: 500px;
     display: flex;
@@ -17,5 +18,4 @@
 #btnMenageSchedule {
     height: 100px;
     width: 200px;
-
 }

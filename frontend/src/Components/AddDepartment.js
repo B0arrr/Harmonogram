@@ -1,3 +1,4 @@
+
 import React from "react";
 import '../Components/Style/AddDepartment.css'
 
@@ -15,4 +16,5 @@ function AddDepartment(){
 
     )
 }
+
 export default AddDepartment

@@ -1,3 +1,4 @@
+
 import React from "react";
 import './Style/UserProfileCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -30,5 +31,6 @@ function UserProfileCard() {
         </div>
     );
 }
+
 
 export default UserProfileCard;

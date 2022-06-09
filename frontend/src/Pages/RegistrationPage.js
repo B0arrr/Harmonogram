@@ -1,3 +1,4 @@
+
 import React from "react";
 import Registration from "../Components/Registration";
 import HeaderRegistration from "../Components/Header/HeaderRegistration";
@@ -12,4 +13,5 @@ function RegistrationPage(){
        </div>
     )
 }
+
 export default RegistrationPage

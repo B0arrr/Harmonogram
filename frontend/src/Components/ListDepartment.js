@@ -1,3 +1,4 @@
+
 import React from "react";
 import '../Components/Style/ListDepartment.css'
 
@@ -17,4 +18,5 @@ function ListDepartment(){
         </div>
     )
 }
+
 export default ListDepartment

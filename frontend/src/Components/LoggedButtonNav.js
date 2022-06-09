@@ -1,3 +1,4 @@
+
 import React from "react";
 import './Style/LoggedButtonNav.css';
 import {useNavigate} from 'react-router-dom';
@@ -20,5 +21,6 @@ function LoggedButtonNav() {
         </div>
     );
 }
+
 
 export default LoggedButtonNav;

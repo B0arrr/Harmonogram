@@ -31,7 +31,7 @@ def test_get_position_id(db: Session):
     assert position.id == get_position
 
 
-def test_get_position_by_name_id(db: Session):
+def test_get_position_name_by_id(db: Session):
     position = create_random_position(db=db)
     get_position = crud.position.get_name_by_id(db=db,
                                                 id=position.id)
