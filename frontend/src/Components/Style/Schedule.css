@@ -1,0 +1,67 @@
+.bg-light-gray {
+    background-color: #f7f7f7;
+}
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.dayInSchedule{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+.containerSchedule{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2%;
+}
+.tableSchedule{
+    width: 10%;
+    font-size: 14px;
+}
+
+
+/*.containerForSchedule {*/
+/*    border: 1px solid black;*/
+/*    margin-right: 2%;*/
+/*}*/
+
+
+/*.scheduleGenerate {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+
+/*}*/
+
+/*.scheduleUl {*/
+/*    list-style-type: none;*/
+/*    font-size: 14px;*/
+/*}*/
+/*.scheduleDisplayDay {*/
+/*    padding-top: 5px;*/
+/*    display: flex;*/
+/*    gap: 12%;*/
+
+/*}*/
+
+
+
+
+
+
+
+

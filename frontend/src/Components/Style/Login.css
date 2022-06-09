@@ -1,0 +1,11 @@
+
+.containerForLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control, .loginHeader {
+    margin-bottom: 2%;
+}
