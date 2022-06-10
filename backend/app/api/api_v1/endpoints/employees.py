@@ -127,4 +127,4 @@ def delete_employee(
     """
     Delete an employee
     """
-    return crud.employee.remove(db=db, id=id)
+    return crud.employee.delete(db=db, id=id)

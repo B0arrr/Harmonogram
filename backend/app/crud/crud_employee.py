@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.core.security import verify_password
 from app.crud.base import CRUDBase
-from app.models import Employee
+from app.models import Employee, Schedule_Employee
 from app.schemas.employee import EmployeeCreate, EmployeeUpdate
 
 
@@ -46,6 +46,18 @@ class CRUDEmployee(CRUDBase[Employee, EmployeeCreate, EmployeeUpdate]):
 
     def is_superuser(self, employee: Employee) -> bool:
         return employee.is_superuser
+
+    def delete(
+            self, db: Session, *, id: int
+    ) -> Employee:
+        schedule_employees = db.query(Schedule_Employee).filter(Schedule_Employee.employee_id == id).all()
+        for i in schedule_employees:
+            db.delete(i)
+            db.commit()
+        employee = db.query(self.model).filter(Employee.id == id).first()
+        db.delete(employee)
+        db.commit()
+        return employee
 
 
 employee = CRUDEmployee(Employee)

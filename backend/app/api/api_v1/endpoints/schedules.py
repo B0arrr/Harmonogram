@@ -129,5 +129,4 @@ def delete_employment(
     schedule = crud.schedule.get(db=db, id=id)
     if not schedule:
         raise HTTPException(status_code=404, detail="Schedule not found")
-    schedule = crud.schedule.remove(db=db, id=id)
-    return schedule
+    return crud.schedule.delete(db=db, id=id)
