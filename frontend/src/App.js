@@ -1,27 +1,48 @@
-import React, {useContext} from 'react';
-import Login from "./Components/TestLogin/Login";
-import HeaderLogin from "./Components/Header/HeaderLogin";
-import {UserContext} from "./Components/TestLogin/UserContext";
+import { Routes, Route } from "react-router-dom";
+import { RequireToken } from "./test/Auth";
+import Login from "./test/Login";
+import Profile from "./test/Profile";
+
+function App(){
 
 
 
-function App() {
-const [token] = useContext(UserContext)
-    return (
-        <div>
-            <HeaderLogin/>
-            <div>
-                <div>
-                        <div>
-                            <p><Login/></p>
-                        </div>
-                </div>
-            </div>
-            {/*<Login/>*/}
+    return(
+        <div className ="App">
+            <Routes>
+                <Route path="/" element = {<Login/>}/>
+                <Route path="/profile" element = {
+                   <RequireToken>
+                       <Profile/>
+                   </RequireToken>
+
+                }/>
+            </Routes>
         </div>
-
-    );
+    )
 }
+
+
+
+
+
+
+// import React from 'react';
+// import Login from "./Components/Login";
+// import HeaderLogin from "./Components/Header/HeaderLogin";
+//
+//
+//
+//
+// function App() {
+//     return (
+//         <div>
+//             <HeaderLogin/>
+//             <Login/>
+//         </div>
+//
+//     );
+// }
 
 export default App;
 

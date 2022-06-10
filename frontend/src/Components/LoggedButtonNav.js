@@ -11,7 +11,7 @@ function LoggedButtonNav() {
         navigate('/src/Pages/ManageEmployees')
     }
     const navigateToMenageSchedule =() => {
-        navigate('/src/Pages/ManageEmployees')
+        navigate('/src/Pages/ManageSchedule')
     }
 
         return (

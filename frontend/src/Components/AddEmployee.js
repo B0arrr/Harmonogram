@@ -88,6 +88,7 @@ function AddEmployee() {
                            onChange={(e) => setLogin(e.target.value)}/>
                     <input placeholder="Password" className="form-control" type="password" value={password}
                            onChange={(e) => setPassword(e.target.value)}/>
+
                     <select className="form-select selectEmployment" aria-label="Default select example"
                             value={employment_id} onChange={chooseEmployment}>
                         {optionsEmployment.map(option => (
