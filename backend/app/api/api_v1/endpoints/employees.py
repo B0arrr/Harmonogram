@@ -2,6 +2,7 @@ from typing import Any, List
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.encoders import jsonable_encoder
+from pydantic import EmailStr
 from sqlalchemy.orm import Session
 
 from app import schemas, crud
@@ -167,7 +168,7 @@ def update_employee_email_by_id(
         *,
         db: Session = Depends(deps.get_db),
         id: int,
-        email: str
+        email: EmailStr
 ) -> Any:
     """
     Update employee email by id
