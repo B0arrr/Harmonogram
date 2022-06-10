@@ -112,10 +112,186 @@ def create_account_by_email(
             detail="Login already in use"
         )
     employee_to_update = jsonable_encoder(employee)
-    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated = schemas.EmployeeAccount(**employee_to_update)
     employee_updated.login = login
     employee_updated.password = get_password_hash(password=password)
     return crud.position.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_name_by_id/{id}/name/{name}", response_model=schemas.Employee)
+def update_employee_name_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        name: str
+) -> Any:
+    """
+    Update employee name by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.name = name
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_surname_by_id/{id}/surname/{surname}", response_model=schemas.Employee)
+def update_employee_surname_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        surname: str
+) -> Any:
+    """
+    Update employee surname by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.surname = surname
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_email_by_id/{id}/email/{email}", response_model=schemas.Employee)
+def update_employee_email_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        email: str
+) -> Any:
+    """
+    Update employee email by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.email = email
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_employment_id_by_id/{id}/employment_id/{employment_id}", response_model=schemas.Employee)
+def update_employee_employment_id_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        employment_id: int
+) -> Any:
+    """
+    Update employee employment_id by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.employment_id = employment_id
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_position_id_by_id/{id}/position_id/{position_id}", response_model=schemas.Employee)
+def update_employee_position_id_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        position_id: int
+) -> Any:
+    """
+    Update employee position_id by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.position_id = position_id
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_login_by_id/{id}/login/{login}", response_model=schemas.Employee)
+def update_employee_login_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        login: str
+) -> Any:
+    """
+    Update employee login by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.login = login
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_password_by_id/{id}/password/{password}", response_model=schemas.Employee)
+def update_employee_password_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        password: str
+) -> Any:
+    """
+    Update employee password by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.password = get_password_hash(password)
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
+
+
+@router.put("/update_employee_department_by_id/{id}/department/{department}", response_model=schemas.Employee)
+def update_employee_password_by_id(
+        *,
+        db: Session = Depends(deps.get_db),
+        id: int,
+        department: str
+) -> Any:
+    """
+    Update employee department by id
+    """
+    employee = crud.schedule.get(db=db, id=id)
+    if not employee:
+        raise HTTPException(
+            status_code=404,
+            detail="Employee with this id don't exist"
+        )
+    employee_to_update = jsonable_encoder(employee)
+    employee_updated = schemas.EmployeeUpdate(**employee_to_update)
+    employee_updated.department = department
+    return crud.schedule.update(db=db, db_obj=employee, obj_in=employee_updated)
 
 
 @router.delete("/delete_employee/{id}", response_model=schemas.Employee)
