@@ -14,15 +14,14 @@ export default function Login() {
             return;
         } else {
             // make api call to our backend. we'll leave thisfor later
-            axios
-                .post("http://localhost:8000/login/access-token", {
-                    username: username,
-                    password: password,
-                })
+            const params = new URLSearchParams();
+            params.append('username', username);
+            params.append('password', password);
+
+            axios.post("http://localhost:8000/api/login/access-token", params)
                 .then(function (response) {
-                    console.log(response.data.token, "response.data.token");
-                    if (response.data.token) {
-                        setToken(response.data.token);
+                    if (response.data.access_token) {
+                        setToken(response.data.access_token);
                         navigate("/profile");
                     }
                 })
