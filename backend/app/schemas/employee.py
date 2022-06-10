@@ -11,6 +11,7 @@ class EmployeeBase(BaseModel):
     position_id: int
     is_active: Optional[bool] = True
     is_superuser: bool = False
+    department: str
 
 
 class EmployeeCreate(BaseModel):
@@ -21,9 +22,21 @@ class EmployeeCreate(BaseModel):
     position_id: int
     login: str
     password: str
+    department: str
 
 
 class EmployeeUpdate(BaseModel):
+    name: str
+    surname: str
+    email: EmailStr
+    employment_id: int
+    position_id: int
+    login: str
+    password: str
+    department: str
+
+
+class EmployeeAccount(BaseModel):
     login: Optional[str] = None
     password: Optional[str] = None
 

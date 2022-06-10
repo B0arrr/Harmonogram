@@ -18,3 +18,4 @@ class Employee(Base):
     position_id = Column(Integer, ForeignKey('position.id'))
     position = relationship("Position", back_populates="employee")
     schedule = relationship("Schedule_Employee", back_populates="employee")
+    department = Column(String, nullable=False)
