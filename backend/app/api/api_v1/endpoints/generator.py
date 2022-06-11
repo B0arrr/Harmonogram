@@ -45,7 +45,6 @@ def generate_schedule_for_department(
                     success = False
                     employee = []
                     while not success:
-                        print(len(employees_temp))
                         employee = random.choice(employees_temp)
                         employment_for_employee = crud.employment.get(db=db, id=employee.employment_id)
                         employee_days_in_work = schedule_employee.count(employee)
