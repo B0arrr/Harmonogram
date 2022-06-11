@@ -35,6 +35,17 @@ class CRUDScheduleEmployee(CRUDBase[Schedule_Employee, ScheduleEmployeeCreate, S
             employees.append(crud.employee.get(db=db, id=i.employee_id))
         return employees
 
+    def get_all_employees_from_day_and_department(
+            self, db: Session, *, day: datetime.date, department: str
+    ) -> List[Employee]:
+        day_id = crud.schedule.get_id(db=db, day=day)
+        employees = []
+        for i in db.query(self.model).filter(Schedule_Employee.schedule_id == day_id).all():
+            employee = crud.employee.get(db=db, id=i.employee_id)
+            if employee.department == department:
+                employees.append(employee)
+        return employees
+
     def delete(
             self, db: Session, *, schedule_id: int, employee_id: int
     ) -> Schedule_Employee:
