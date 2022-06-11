@@ -45,10 +45,11 @@ def generate_schedule_for_department(
                     success = False
                     employee = []
                     while not success:
+                        print(len(employees_temp))
                         employee = random.choice(employees_temp)
                         employment_for_employee = crud.employment.get(db=db, id=employee.employment_id)
                         employee_days_in_work = schedule_employee.count(employee)
-                        if employment_for_employee.hours_per_week >= employee_days_in_work * employment_for_employee\
+                        if employment_for_employee.hours_per_week <= employee_days_in_work * employment_for_employee\
                                 .hours_per_day:
                             employees.remove(employee)
                             employees_temp.remove(employee)
@@ -63,7 +64,7 @@ def generate_schedule_for_department(
                     temp = crud.schedule_employee.create(db=db, obj_in=schedule_employee_in)
                     schedule_employee.append(temp)
 
-    return get_generated_schedule_from_department(db=db, start=start, end=end)
+    return get_generated_schedule_from_department(db=db, start=start, end=end, department=department)
 
 
 @router.get("/get_generated_schedule/start/{start}/end/{end}", response_model=schemas.GeneratedSchedule)
