@@ -74,7 +74,7 @@ def get_employee_by_login(
 
 
 @router.get("/get_all_employees_from_department/{department}", response_model=List[schemas.Employee])
-def get_all_employees(
+def get_all_employees_from_department(
         *,
         db: Session = Depends(deps.get_db),
         department: str
