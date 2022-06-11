@@ -26,12 +26,20 @@ class CRUDEmployee(CRUDBase[Employee, EmployeeCreate, EmployeeUpdate]):
     ) -> Employee:
         return db.query(self.model).filter(Employee.login == login).first()
 
+    def get_all_employees_from_department(
+            self,
+            *,
+            db: Session,
+            department: str
+    ) -> List[Employee]:
+        return db.query(self.model).filter(Employee.department == department).all()
+
     def get_all_employees(
             self,
             *,
             db: Session
     ) -> List[Employee]:
-        return db.query(self.model).filter(Employee.position_id != 1).all()
+        return db.query(self.model).all()
 
     def authenticate(self, db: Session, *, email: str, password: str) -> Optional[Employee]:
         user = self.get_by_email(db=db, email=email)

@@ -73,6 +73,18 @@ def get_employee_by_login(
     return crud.employee.get_by_login(db=db, login=login)
 
 
+@router.get("/get_all_employees_from_department/{department}", response_model=List[schemas.Employee])
+def get_all_employees(
+        *,
+        db: Session = Depends(deps.get_db),
+        department: str
+) -> Any:
+    """
+    Get all employees from department
+    """
+    return crud.employee.get_all_employees_from_department(db=db, department=department)
+
+
 @router.get("/get_all_employees", response_model=List[schemas.Employee])
 def get_all_employees(
         *,
