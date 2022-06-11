@@ -13,24 +13,26 @@ router = APIRouter()
 
 
 @router.post("/generate_schedule", response_model=schemas.GeneratedSchedule)
-def generate_schedule(
+def generate_schedule_for_department(
         *,
         db: Session = Depends(deps.get_db),
         start: date,
         end: date,
         employee_per_shift: int,
-        shifts: int
+        shifts: int,
+        department: str
 ) -> Any:
     """
     Generate schedule from start to end day, for different employees on shift, and different amount of shifts
     """
     days = helper.get_list_of_days(start, end)
-    employees = crud.employee.get_all_employees(db=db)
+    employees = crud.employee.get_all_employees_from_department(db=db, department=department)
     if len(employees) < employee_per_shift * shifts:
         raise HTTPException(
             status_code=400,
-            detail="Not enough employees to create schedule",
+            detail=f"Not enough employees to create schedule on {department} department",
         )
+    schedule_employee = []
     for i in days:
         day_off = False
         if i.weekday() == 5 or i.weekday() == 6:
@@ -40,23 +42,37 @@ def generate_schedule(
         if not day_off:
             for j in range(shifts):
                 for k in range(employee_per_shift):
-                    employee = random.choice(employees_temp)
+                    success = False
+                    employee = []
+                    while not success:
+                        employee = random.choice(employees_temp)
+                        employment_for_employee = crud.employment.get(db=db, id=employee.employment_id)
+                        employee_days_in_work = schedule_employee.count(employee)
+                        if employment_for_employee.hours_per_week >= employee_days_in_work * employment_for_employee\
+                                .hours_per_day:
+                            employees.remove(employee)
+                            employees_temp.remove(employee)
+                            continue
+                        success = True
                     schedule_employee_in = schemas.ScheduleEmployeeCreate(
                         schedule_id=schedule.id,
                         employee_id=employee.id,
                         shift=j + 1
                     )
                     employees_temp.remove(employee)
-                    crud.schedule_employee.create(db=db, obj_in=schedule_employee_in)
-    return get_generated_schedule(db=db, start=start, end=end)
+                    temp = crud.schedule_employee.create(db=db, obj_in=schedule_employee_in)
+                    schedule_employee.append(temp)
+
+    return get_generated_schedule_from_department(db=db, start=start, end=end)
 
 
 @router.get("/get_generated_schedule/start/{start}/end/{end}", response_model=schemas.GeneratedSchedule)
-def get_generated_schedule(
+def get_generated_schedule_from_department(
         *,
         db: Session = Depends(deps.get_db),
         start: date,
-        end: date
+        end: date,
+        department: str
 ) -> Any:
     """
     Get schedule
@@ -65,7 +81,9 @@ def get_generated_schedule(
     list = []
     for i in days:
         try:
-            employees = crud.schedule_employee.get_all_employees_from_day(db=db, day=i)
+            employees = crud.schedule_employee.get_all_employees_from_day_and_department(db=db,
+                                                                                         day=i,
+                                                                                         department=department)
         except:
             continue
         employees_schema = []
