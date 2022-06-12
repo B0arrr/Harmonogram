@@ -1,23 +1,17 @@
 import React from "react";
-import './Style/LoggedButtonNav.css';
+import './Style/BasicButtonNav.css';
 import {useNavigate} from 'react-router-dom';
 
-function LoggedButtonNav() {
+function BasicLoggedButtonNav() {
 
     const navigate = useNavigate();
 
-    const navigateToMenageEmployees = () => {
-        navigate('/src/Pages/ManageEmployees');
-    };
     const navigateToMenageSchedule = () => {
-        navigate('/src/Pages/ManageSchedule');
+        navigate('/src/Pages/BasicManageSchedule');
     };
 
     return (
         <div className="containerForLoggedNavBtn">
-            <button id="btnMenageEmployees" className="btn btn-primary col-sm-6"
-                    onClick={navigateToMenageEmployees}>Menage employees
-            </button>
             <button id="btnMenageSchedule" className="btn btn-primary col-sm-6"
                     onClick={navigateToMenageSchedule}>Menage schedule
             </button>
@@ -26,4 +20,4 @@ function LoggedButtonNav() {
 }
 
 
-export default LoggedButtonNav;
+export default BasicLoggedButtonNav;

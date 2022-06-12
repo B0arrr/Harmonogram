@@ -11,18 +11,15 @@ function ManageSchedule() {
         <div>
             <HeaderManageSchedule/>
             <div className='containerForManageSchedule'>
-                <div className='employeeScheduleGenerator'>
+                <div className='employeeScheduleGenAndPick'>
                     <EmployeeScheduleGenerator/>
-                </div>
-                <div className='employeeSchedulePicker'>
+                    <br/>
                     <SchedulePicker/>
                 </div>
+                <div className='employeeSchedule'>
+                    <Schedule/>
+                </div>
             </div>
-            <div className='employeeSchedule'>
-                <Schedule/>
-            </div>
-
-
         </div>
     );
 }

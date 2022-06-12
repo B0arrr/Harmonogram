@@ -23,6 +23,7 @@ function AddEmployee() {
         setPosition_id("");
         setLogin("");
         setPassword("");
+        setDepartment("");
     };
 
     useEffect(() => {
@@ -42,16 +43,38 @@ function AddEmployee() {
             employment_id,
             position_id,
             login,
-            password
+            password,
+            department
         }).then(res => alert(`Employee account created`))
             .then(res => resetInputField())
             .catch(err => setErrorMessage(err.response.data.detail));
     };
 
+    const optionsDepartments = [
+        {value: '', text: 'Choose department'},
+        {value: '1', text: 'Biuro obsługi klienta'},
+        {value: '2', text: 'Księgowość'},
+        {value: '3', text: 'Logistyka'},
+        {value: '4', text: 'Produkcja'},
+        {value: '5', text: 'Handlowy'},
+        {value: '6', text: 'Marketing'},
+        {value: '7', text: 'Magazyn'},
+        {value: '8', text: 'HR'},
+        {value: '9', text: 'IT'},
+    ]
+    const [department, setDepartment] = useState(optionsDepartments[0].value);
+    const chooseDepartment = event => {
+        console.log(event.target.value);
+        setDepartment(event.target.value);
+    };
+
+
     const optionsEmployment = [
         {value: '', text: 'Choose employment'},
         {value: '1', text: 'Cały etat'},
-        {value: '2', text: 'Pół etatu'},
+        {value: '2', text: '3/4 etatu'},
+        {value: '3', text: 'Pół etatu'},
+        {value: '4', text: '1/4 etatu'},
     ];
 
     const [employment_id, setEmployment_id] = useState(optionsEmployment[0].value);
@@ -97,6 +120,7 @@ function AddEmployee() {
                             </option>
                         ))}
                     </select>
+
                     <select className="form-select selectPosition" aria-label="Default select example"
                             value={position_id} onChange={choosePosition}>
                         {optionsPosition.map(option2 => (
@@ -105,8 +129,17 @@ function AddEmployee() {
                             </option>
                         ))}
                     </select>
+
+                    <select className="form-select selectPosition" aria-label="Default select example"
+                            value={department} onChange={chooseDepartment}>
+                        {optionsDepartments.map(option2 => (
+                            <option key={option2.value} value={option2.text}>
+                                {option2.text}
+                            </option>
+                        ))}
+                    </select>
                 </form>
-                <button className="btn btn-primary btnAddEmployee" onClick={postData}> Register</button>
+                <button className="btn btn-primary btnAddEmployee" onClick={postData}> Add Employee</button>
             </div>
         </div>
     );

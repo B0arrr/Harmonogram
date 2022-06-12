@@ -1,0 +1,14 @@
+
+.containerForLoggedNavBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+#btnMenageSchedule {
+    height: 100px;
+    width: 200px;
+}

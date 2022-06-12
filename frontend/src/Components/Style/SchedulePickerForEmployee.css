@@ -1,16 +1,11 @@
-.containerForLogin {
-    height: 70vh;
+.containerForBasicManageSchedule{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.buttonSingIn {
+.schedulePickerHeader{
     width: 100%;
-}
-
-
-.form-control, .loginHeader {
-    margin-bottom: 2%;
-
+    display: flex;
+    justify-content: center;
 }

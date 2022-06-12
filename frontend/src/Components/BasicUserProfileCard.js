@@ -2,29 +2,36 @@ import './Style/UserProfileCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
-import axios from "axios";
+import Login from "../test/Login";
 
 
-function UserProfileCard() {
-
+function BasicUserProfileCard() {
 
     const  [data, setData] = useState([])
 
 
-   useEffect(() =>{
+
+
+    useEffect(() =>{
         const token = localStorage.getItem('temitope')
-             Axios.get(`http://localhost:8000/api/get_employee_by_email/${localStorage.getItem('inputEmailValue')}`,{ headers: {"Authorization" : `Bearer ${token}`} })
-                .then(res => {
-                    console.log(res.data)
-                    setData(res.data)
-                })
-                .catch((error) =>{
-                    console.log(error);
-                })
+        Axios.get(`http://localhost:8000/api/get_employee_by_email/${localStorage.getItem('inputEmailValue')}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+            .then(res => {
+                console.log(res.data)
+                setData(res.data)
+            })
+            .catch((error) =>{
+                console.log(error);
+            })
     },[])
-
-
-
+console.log(data.employment_id)
+    const aa = data.position_id
+    function test(){
+        if (aa === 1){
+            return true
+        } else {
+            return false
+        }
+    }
 
 
     return (
@@ -53,4 +60,5 @@ function UserProfileCard() {
     );
 }
 
-export default UserProfileCard;
+
+export default BasicUserProfileCard;

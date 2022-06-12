@@ -1,18 +1,25 @@
-.containerForManageSchedule{
-    margin-top: 2%;
+.containerForManageSchedule {
+    margin-top: 1%;
     display: flex;
-    justify-content: space-between;
-}
-.employeeScheduleGenerator{
-    width: 50vw;
-    margin-left: 1%;
-    margin-right: 1%;
-}
-.employeeSchedulePicker{
-    width: 50vw;
-    margin-left: 1%;
-    margin-right: 1%;
+
 }
 .employeeSchedule{
+    width: 50vw;
+}
 
+/*.employeeScheduleGenerator {*/
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+.employeeScheduleGenAndPick{
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    margin-left: 1%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
 }

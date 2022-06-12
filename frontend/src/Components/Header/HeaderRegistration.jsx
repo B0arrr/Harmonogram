@@ -1,4 +1,3 @@
-
 import React from "react";
 import '../Style/Header.css';
 
@@ -9,7 +8,7 @@ function HeaderRegistration() {
             <a href="/" className="logo">Harmonogram</a>
             <div className="header-right">
                 <a href="/">Home</a>
-                <a href="/">Log In</a>
+                <a href="/">Sing In</a>
             </div>
         </div>
     );

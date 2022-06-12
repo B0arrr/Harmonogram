@@ -1,24 +1,29 @@
 .btnAddEmployee {
-width: 100%;
+    width: 100%;
 }
-.addEmployeeHeader{
+
+.addEmployeeHeader {
     display: flex;
     justify-content: center;
     margin-bottom: 1%;
 }
-.labelForEmployment{
-margin: 2%;
+
+.labelForEmployment {
+    margin: 2%;
 }
-.containerForChooseEmployment{
+
+.containerForChooseEmployment {
     display: flex;
     justify-content: center;
     gap: 20%;
     flex-wrap: wrap;
 }
-.labelForEmployment{
+
+.labelForEmployment {
     width: 100%;
 }
-.selectEmployment, .selectPosition{
+
+.selectEmployment, .selectPosition {
     margin-bottom: 2%;
 }
 

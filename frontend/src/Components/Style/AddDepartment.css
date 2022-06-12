@@ -1,10 +1,10 @@
 .btnAddDepartment {
-width: 100%;
+    width: 100%;
 
 }
 
-.addDepartmentHeader{
-   display: flex;
+.addDepartmentHeader {
+    display: flex;
     justify-content: center;
     margin-bottom: 1%;
 
